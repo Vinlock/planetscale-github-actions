@@ -1,0 +1,28 @@
+name: "PlanetScale: Create Branch"
+description: "Create a database branch"
+author: "dakdevs"
+inputs:
+  api_key:
+    required: true
+    description: "API Key for PlanetScale"
+  organization:
+    required: true
+    description: "The name of the organization the branch belongs to"
+  database:
+    required: true
+    description: "The name of the database the branch belongs to"
+  name:
+    required: true
+    description: "The name of the branch"
+  parent_branch:
+    required: true
+    description: "Parent branch"
+  backup_id:
+    required: false
+    description: "If provided, restores the backup's schema and data to the new branch."
+outputs:
+  name:
+    description: "Created branch name"
+runs:
+  using: "node16"
+  main: "../lib/create-branch-action.js"
