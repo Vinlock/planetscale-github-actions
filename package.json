@@ -7,7 +7,9 @@
   "scripts": {
     "build": "rm -rf lib && tsc",
     "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt"
+    "package": "npm run package-create-branch-action && npm run package-create-deploy-request-action",
+    "package-create-branch-action": "ncc build --source-map --license licenses.txt --out dist/create-branch-action src/create-branch-action.ts",
+    "package-create-deploy-request-action": "ncc build --source-map --license licenses.txt --out dist/create-deploy-request-action src/create-deploy-request-action.ts"
   },
   "repository": {
     "type": "git",
